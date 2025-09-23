@@ -66,6 +66,85 @@ footer .logo { height:44px !important; }
 footer{margin-top:20px}
 </style>
 
+<style>
+  /* === MyGradMentor – intake form styles (inline) ===
+     Adjust brand color once here: */
+  :root {
+    --mgm-accent: #0f766e;   /* teal brand */
+    --mgm-text: #0f172a;
+    --mgm-muted: #64748b;
+    --mgm-bg: #ffffff;
+    --mgm-border: #e5e7eb;
+  }
+
+  .mgm-form-wrap{margin:2rem auto;max-width:820px;padding:0 1rem;}
+  .mgm-card{
+    background:var(--mgm-bg);
+    border:1px solid var(--mgm-border);
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(2,6,23,.06);
+    padding:28px;
+  }
+
+  .mgm-header{margin-bottom:18px;}
+  .mgm-title{font-size:1.5rem;line-height:1.2;margin:0 0 .25rem;color:var(--mgm-text);}
+  .mgm-sub{margin:0;color:var(--mgm-muted);font-size:.975rem;}
+
+  /* layout */
+  .mgm-form{display:grid;gap:16px;}
+  .mgm-field{display:flex;flex-direction:column;gap:8px;}
+  .mgm-row-2{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media (min-width:680px){.mgm-row-2{grid-template-columns:1fr 1fr;}}
+
+  /* controls */
+  .mgm-label{font-weight:600;color:var(--mgm-text);font-size:.95rem;}
+  .mgm-input,.mgm-textarea,.mgm-select,.mgm-file{
+    width:100%;border:1px solid var(--mgm-border);background:#fff;
+    border-radius:12px;padding:12px 14px;font-size:1rem;line-height:1.5;
+    color:#0f172a;transition:.2s border-color,.2s box-shadow,.2s background;
+  }
+  .mgm-textarea{min-height:110px;resize:vertical;}
+  .mgm-input::placeholder,.mgm-textarea::placeholder{color:#9aa4b2;}
+  .mgm-input:focus,.mgm-textarea:focus,.mgm-select:focus{
+    outline:none;border-color:var(--mgm-accent);
+    box-shadow:0 0 0 4px color-mix(in srgb, var(--mgm-accent) 20%, transparent);
+  }
+
+  /* file input polish */
+  .mgm-file{padding:.9rem 1rem;}
+  .mgm-file::-webkit-file-upload-button,
+  .mgm-file::file-selector-button{
+    background:color-mix(in srgb, var(--mgm-accent) 14%, white);
+    border:0;border-radius:8px;padding:.55rem .9rem;margin-right:.75rem;cursor:pointer;
+  }
+
+  /* consent / helper text */
+  .mgm-inline{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:var(--mgm-muted);}
+  .mgm-checkbox{width:18px;height:18px;accent-color:var(--mgm-accent);}
+  .mgm-privacy a{color:var(--mgm-accent);text-decoration:underline;}
+  .mgm-help,.mgm-note{font-size:.85rem;color:var(--mgm-muted);}
+
+  /* actions */
+  .mgm-actions{margin-top:4px;}
+  .mgm-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    border-radius:999px;padding:12px 18px;background:var(--mgm-accent);color:#fff;border:0;
+    font-weight:600;cursor:pointer;transition:transform .05s ease,box-shadow .2s ease,background .2s ease;
+  }
+  .mgm-btn:hover{filter:saturate(1.05);box-shadow:0 8px 18px rgba(15,118,110,.18);}
+  .mgm-btn:active{transform:translateY(1px);}
+
+  /* keep a little gap before Calendly block that follows */
+  .mgm-form-wrap + *{margin-top:24px;}
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark){
+    :root{--mgm-bg:#0b1220;--mgm-text:#e2e8f0;--mgm-muted:#94a3b8;--mgm-border:#1f2a44;}
+    .mgm-card{box-shadow:0 8px 24px rgba(0,0,0,.35);}
+    .mgm-input,.mgm-textarea,.mgm-select,.mgm-file{background:#0e1627;border-color:var(--mgm-border);color:var(--mgm-text);}
+  }
+</style>
+
 </head>
 <body> <header> <div class="container nav"> <a class="brand" href="#home"> <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAEbElEQVR42u2VXWxUVRDH/zPn3N7dbQttLfSTBcwi0UYwBCFoYgFjIkF50cUYMQiVFkiEB0143O6jItEggexa4YHgQ4tRiRE0qNRgFBNi5KNBhDSlQEuBpdAu2917zxkfygLaYvTFqNnf25k598yc/5w7AxQoUKBAgf8+9C/JQwiNMQ0AiMUY0XY1Zsttm9AYf7RdIRbTiMX4T2NA6K8nAmDqyl2BPwTheyqY942XXP7baLuCjHOBccsRbVfoWG4A4IHmROV1ctcYVk0Q+dm13lsXkk1HRgML1/QlA+Kb5/p3rt9d37KjzuQwr2/Xuo9vnSnVq7YvQfGEecimD/W/39I5XvC6VVtnGy6q6f9g7QFEowodHWaMXOF128uzvrPWkn4NobIa63sgWMDPgSF7Heu/fSHZdKSxMaa7IjUjBDNHoJcS0KTEX5+D+30R+5sMqMIJBPf6mfRcAneLmGkgOSU6MItGcnugaRGUs0yst3+gbW0SjTGNzrg/KpsIRVIVrtOwtDVHgd0Ilj9j/VypZNPHyGSPibV1sJbhuA2W1auhOc8uGCwLnDUWLsBPALaKID8IqQjDzhJggRB/RNdTZ63jLhOiuQLbyZYixM4MYlllRU4z03FYlKR/+uwIpi1k9HRanS9cUTQlUjr5CoBh3Lx2QivdLUoFLHg2AAVmhgjEmhSDzhgSQ5ATBM6S0LAwNJH91YC3kO8vgdbv2NKKR+B7tSSmR2n9rQEWEsElyAlmVWXB9ST2u3s8SGHEydat3vayJkoPU3ADBSc0CgFkfMDPnVMwX7LktvQlW04BwJTVb9b27tx0EQCmN71bdQPug2R51pVdLVurVmwuJrcsTMr2lF+76Hd1xL2pK2OudafX9SZfORtet73cM6qq2B3pPvPexuzYhKLtCgMnqXpGzQZjaSbcYIkyXo9RgcfJet0kctkCi/nm0POXeq/23j85WDw0oeLriaHgohuZzJMiElV2ZCOpULivbc3R+1a31bIZscQcgnZerBw8vzlVEY70p0p/iVT36aFMsPZSW3P3vf+yWwpVNiW2MTBJyuqX26GBFBl/vxBFqKRyPkaGEJCB+vOJ1y+UNycmsmd/VKAdAjwMhgvBcXICDfBGTgMSAZGBlcvWKZqpTO4rkI4Q5Iq1ZhKBTL2mTUcTzT6IAEAAgG8nFiepWrG5GMp5QcCHaPDiG0TKobKalyhUPh+ZwcOOn3n6fPWNPgBwfa+MxX4OlseIJENizwnRIoHpAUw1az6uSPaBEGQve5hITQHkoBVTQoSw58iWo8kWL9/88rroO2uS4pDRQ6Q+gTLdA8k1B8LNiQ+z6asrSfwz/YmmvXe6axyu8a6nUXTQMfaYT+SQ+NMUqU+Z1WKx2AffCzpahq3oPZb5URGzH6yfYsOdivwvijxXUn9rMN3VrceOin9ycMa+0cAhi3jcjo6ChYyuy5Lv4L/fG2O0to7K3do6elZXA+Ghk3mboLWVbtvu9sXjcnepChQoUKBAgf8LvwGsOAn254rm5wAAAABJRU5ErkJggg==" alt="MyGradMentor logo" /> </a> <nav class="navlinks" aria-label="Primary"> <a href="#home">Home</a> <a href="#about">About</a> <a href="#services">Services</a> <a href="#pricing" class="btn ghost">Pricing</a> <a href="#resources">Resources</a> <a href="#contact" class="btn primary">Contact</a> <span class="socials"> <a class="btn icon" href="https://www.linkedin.com/company/mygradmentor/" target="_blank" rel="noopener" aria-label="LinkedIn"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <rect x="3" y="3" width="18" height="18" rx="4" fill="#2563eb"/> <path d="M8 17V10" stroke="white" stroke-width="2" stroke-linecap="round"/> <circle cx="8" cy="7" r="1.2" fill="white"/> <path d="M12 17v-4.2c0-1.5 1.2-2.8 2.8-2.8s2.8 1.3 2.8 2.8V17" stroke="white" stroke-width="2" stroke-linecap="round"/> </svg> </a> <a class="btn icon" href="mailto:mygradmentor.email@gmail.com" aria-label="Email"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <rect x="3" y="5" width="18" height="14" rx="3" stroke="#14b8a6" stroke-width="2"/> <path d="M4 7l8 6 8-6" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg> </a> <a class="btn icon" href="https://wa.me/4917659997642" target="_blank" rel="noopener" aria-label="WhatsApp"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <path d="M4 20l1.5-3.5A8 8 0 1112 20a8 8 0 01-4-.9L4 20z" stroke="#25D366" stroke-width="2" fill="none"/> <path d="M8.5 8.5c.4-1.1 1.6-1.2 2-.3.3.7.4 1 .9 1.6.5.6.9.9 1.6 1.2.9.4.9 1.6-.2 2-1.6.7-3.6-.3-4.8-1.8-1.2-1.5-1.6-2.8-1-3.7z" fill="#25D366"/> </svg> </a> </span> </nav> <button class="menu-btn btn ghost" id="menuBtn" aria-expanded="false">Menu</button> </div> </header> <main id="top"> <section class="hero" id="home"> <div class="container hero-grid"> <div> <div class="eyebrow">Graduate School Mentorship</div> <h1>Helping Students Unlock Global Graduate Opportunities</h1> <p class="lead">Expert mentorship and professional editing for SOPs, essays, CVs, and scholarships. Get admitted to top programs in Economics, Public Policy, International Relations, and Sustainable Development.</p> <div class="cta"> <a href="#schedule" class="btn primary">Book your free consultation call</a> <a href="#resources" class="btn ghost">Free Resources</a> </div> </div> <div class="hero-art">
       
@@ -86,33 +165,75 @@ footer{margin-top:20px}
 </section>
     </div> </div> </section> <section id="about"> <div class="container"> <h2 class="section-title">About</h2> <p class="section-desc">Led by alumni of prestigious global institutions with proven track records in admissions and scholarships.</p> <div class="twocol"> <article class="card feature"> <h3><span class="icon-badge badge-blue"> <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"> <path d="M2 9l10-5 10 5-10 5-10-5Z" fill="#2563eb" fill-opacity=".9"/> <path d="M6 11.5v4c0 .8 2.9 3 6 3s6-2.2 6-3v-4" stroke="#2563eb" stroke-width="1.5" fill="none"/> </svg> </span>Alumni-Led Expertise</h3> <p>Our alumni are graduates of top universities and have successfully navigated the admissions process at Johns Hopkins, Columbia SIPA, Tufts Fletcher, Boston University, and the Hertie School. We've guided the complete journey from applications to scholarships.</p> </article> <article class="card feature"> <h3><span class="icon-badge badge-teal"> <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"> <circle cx="9" cy="8" r="3.5" stroke="#14b8a6" stroke-width="1.6"/> <path d="M3 18c.6-2.8 3.6-4.5 6-4.5s5.4 1.7 6 4.5" stroke="#14b8a6" stroke-width="1.6" fill="none"/> <circle cx="17.5" cy="8.5" r="2.5" stroke="#14b8a6" stroke-width="1.4"/> </svg> </span>Collaborative Approach</h3> <p>We don't just edit your documents — we collaborate with you to uncover your unique story, align it with your program goals, and present it authentically in a way that top universities value.</p> </article> </div> <h3 style="margin-top:28px">What Sets Us Apart</h3> <div class="checklist"> <div class="check"><span class="icon"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg></span><div>Every application crafted from scratch in collaboration with you</div></div> <div class="check"><span class="icon"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg></span><div>Deep understanding of program-specific requirements</div></div> <div class="check"><span class="icon"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg></span><div>Proven track record with top-tier institutions</div></div> <div class="check"><span class="icon"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg></span><div>Comprehensive support from strategy to interviews</div></div> <div class="check"><span class="icon"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg></span><div>Personalized guidance based on your unique profile</div></div> </div> <h3 style="margin-top:28px">Who We Help</h3> <p class="muted">Specialized guidance for students targeting specific programs and regions</p> <h4 style="margin-top:10px">Target Programs</h4> <div class="chips" style="margin:10px 0 24px"> <span class="chip">Economics</span> <span class="chip">Public Policy</span> <span class="chip">International Relations</span> <span class="chip">Sustainable Development</span> </div> <h4>Target Destinations</h4> <div class="destinations"> <article class="card destination"> <h4>Europe</h4> <p class="muted">Germany, Netherlands, Sweden, France & more</p> </article> <article class="card destination"> <h4>United Kingdom</h4> <p class="muted">Top universities across England, Scotland & Wales</p> </article> <article class="card destination"> <h4>United States</h4> <p class="muted">Leading institutions nationwide</p> </article> </div> </div> </section> <section id="services"> <div class="container"> <h2 class="section-title">Services</h2> <p class="section-desc">Comprehensive support for every aspect of your graduate application journey</p> <div class="services"> <article class="card service"><h4><span class="icon-badge badge-blue"> <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"> <path d="M2 9l10-5 10 5-10 5-10-5Z" fill="#2563eb" fill-opacity=".9"/> <path d="M6 11.5v4c0 .8 2.9 3 6 3s6-2.2 6-3v-4" stroke="#2563eb" stroke-width="1.5" fill="none"/> </svg> </span>Free Profile Evaluation</h4><p>Comprehensive assessment of your academic and professional background</p></article> <article class="card service"><h4><span class="icon-badge badge-amber"> <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"> <circle cx="9" cy="8" r="3.5" stroke="#f59e0b" stroke-width="1.6"/> <path d="M3 18c.6-2.8 3.6-4.5 6-4.5s5.4 1.7 6 4.5" stroke="#f59e0b" stroke-width="1.6" fill="none"/> <circle cx="17.5" cy="8.5" r="2.5" stroke="#f59e0b" stroke-width="1.4"/> </svg> </span>SOP & Essay Brainstorming</h4><p>Collaborative ideation sessions to develop compelling narratives</p></article> <article class="card service"><h4><span class="icon-badge badge-teal"> <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"> <circle cx="9" cy="8" r="3.5" stroke="#14b8a6" stroke-width="1.6"/> <path d="M3 18c.6-2.8 3.6-4.5 6-4.5s5.4 1.7 6 4.5" stroke="#14b8a6" stroke-width="1.6" fill="none"/> <circle cx="17.5" cy="8.5" r="2.5" stroke="#14b8a6" stroke-width="1.4"/> </svg> </span>SOP & Essay Review</h4><p>Professional feedback on structure, content, and alignment</p></article> <article class="card service"><h4><span class="icon-badge badge-blue"> <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"> <circle cx="9" cy="8" r="3.5" stroke="#2563eb" stroke-width="1.6"/> <path d="M3 18c.6-2.8 3.6-4.5 6-4.5s5.4 1.7 6 4.5" stroke="#2563eb" stroke-width="1.6" fill="none"/> <circle cx="17.5" cy="8.5" r="2.5" stroke="#2563eb" stroke-width="1.4"/> </svg> </span>SOP & Essay Editing</h4><p>Expert editing for clarity, impact, and authenticity</p></article> <article class="card service"><h4><span class="icon-badge badge-amber"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg> </span>CV Review & Formatting</h4><p>Professional CV optimization for academic applications</p></article> <article class="card service"><h4><span class="icon-badge badge-teal"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#14b8a6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg> </span>Scholarship Guidance</h4><p>Strategic advice for funding opportunities and applications</p></article> <article class="card service"><h4><span class="icon-badge badge-blue"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg> </span>Application Strategy</h4><p>Comprehensive planning for your entire application portfolio</p></article> <article class="card service"><h4><span class="icon-badge badge-amber"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg> </span>Interview Preparation</h4><p>Mock interview sessions with personalized feedback</p></article> <article class="card service"><h4><span class="icon-badge badge-blue"> <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none"> <path d="M15.8 6.2l-7.2 7.4L4.2 9.4" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/> </svg> </span>Test Prep Tips</h4><p>GRE/GMAT/IELTS preparation guidance and strategies</p></article> </div> </div> </section> <section id="pricing"> <div class="container"> <h2 class="section-title">Pricing</h2><span class="offer-pill">Limited-time offer</span> <p class="section-desc"> </p> <h3>Comprehensive Packages</h3> <div class="plans"> <article class="card plan"> <span class="save-badge">Save $400</span> <h3>1 School </h3> <div class="price"><span class="was">$1000</span><span class="now">$600</span></div> <ul class="bullets"> <li>SOP/Essay editing </li> <li>CV review</li> <li>Interview preparation</li> <li>Full application guidance</li> </ul> <a href="#contact" class="btn primary">Choose Plan</a> </article> <article class="card plan popular"> <span class="badge">Most Popular</span> <span class="save-badge">Save $1000</span> <h3>3 Schools </h3> <div class="price"><span class="was">$2500</span><span class="now">$1500</span></div> <ul class="bullets"> <li>SOP/Essay editing </li> <li>CV review</li> <li>Interview preparation</li> <li>Full application guidance</li> </ul> <a href="#contact" class="btn primary">Choose Plan</a> </article> <article class="card plan"> <span class="save-badge">Save $1400</span> <h3>5 Schools </h3> <div class="price"><span class="was">$3500</span><span class="now">$2100</span></div> <ul class="bullets"> <li>SOP/Essay editing </li> <li>CV review</li> <li>Interview preparation</li> <li>Full application guidance</li> </ul> <a href="#contact" class="btn primary">Choose Plan</a> </article> </div> <h3 style="margin-top:28px">À La Carte Services</h3> <div class="price-list"> <div class="price-row"><span class="left">CV Review</span><span class="right"><span class="was">$100</span><strong>$80</strong></span></div> <div class="price-row"><span class="left">SOP Review</span><span class="right"><span class="was">$150</span><strong>$120</strong></span></div> <div class="price-row"><span class="left">SOP Edit</span><span class="right"><span class="was">$250</span><strong>$200</strong></span></div> <div class="price-row"><span class="left">Essay Review</span><span class="right"><span class="was">$150</span><strong>$120</strong></span></div> <div class="price-row"><span class="left">Essay Edit</span><span class="right"><span class="was">$250</span><strong>$200</strong></span></div> <div class="price-row"><span class="left">Application Strategy</span><span class="right"><span class="was">$200</span><strong>$160</strong></span></div> </div> </div> </section> <section id="resources"> <div class="container"> <h2 class="section-title">Resources</h2> <p class="section-desc">Free guides, tips, and downloadable materials to support your application journey.</p> <div class="card" style="padding:22px;margin-top:8px"> <h3 style="margin:0 0 6px">Coming Soon</h3> <p class="muted" style="margin:0 0 10px">We're preparing comprehensive guides, templates, and resources to help you succeed.</p> <div class="subscribe"> <input class="input" type="email" placeholder="Enter your email" aria-label="Email" /> <button class="btn primary" type="button">Get Notified</button> </div> </div> </div> </section> <section id="contact"> <div class="container contacts"> <div> <h2 class="section-title">Contact</h2> <p class="section-desc">Ready to start? Get in touch via email or WhatsApp.</p> <div class="twocol" style="margin-top:10px"> <div class="card feature"> <h3><span class="icon-badge badge-teal"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <rect x="3" y="5" width="18" height="14" rx="3" stroke="#14b8a6" stroke-width="2"/> <path d="M4 7l8 6 8-6" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg> </span>Email Us</h3> <p class="muted">Prefer to write? We'll get back to you promptly.</p> <p style="margin-top:8px"><a class="btn ghost" href="mailto:mygradmentor.email@gmail.com"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <rect x="3" y="5" width="18" height="14" rx="3" stroke="#14b8a6" stroke-width="2"/> <path d="M4 7l8 6 8-6" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg> mygradmentor.email@gmail.com</a></p> </div> <div class="card feature"> <h3><span class="icon-badge badge-amber"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <path d="M4 20l1.5-3.5A8 8 0 1112 20a8 8 0 01-4-.9L4 20z" stroke="#f59e0b" stroke-width="2" fill="none"/> <path d="M8.5 8.5c.4-1.1 1.6-1.2 2-.3.3.7.4 1 .9 1.6.5.6.9.9 1.6 1.2.9.4.9 1.6-.2 2-1.6.7-3.6-.3-4.8-1.8-1.2-1.5-1.6-2.8-1-3.7z" fill="#f59e0b"/> </svg> </span>WhatsApp</h3> <p class="muted">For quick questions and instant support.</p> <p style="margin-top:8px"><a class="btn ghost" href="https://wa.me/4917659997642" target="_blank" rel="noopener"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <path d="M4 20l1.5-3.5A8 8 0 1112 20a8 8 0 01-4-.9L4 20z" stroke="#25D366" stroke-width="2" fill="none"/> <path d="M8.5 8.5c.4-1.1 1.6-1.2 2-.3.3.7.4 1 .9 1.6.5.6.9.9 1.6 1.2.9.4.9 1.6-.2 2-1.6.7-3.6-.3-4.8-1.8-1.2-1.5-1.6-2.8-1-3.7z" fill="#25D366"/> </svg> <span class="nowrap">+49 17659997642</span></a></p> </div> </div> <div style="margin-top:12px"> <a class="btn ghost" href="https://www.linkedin.com/company/mygradmentor/" target="_blank" rel="noopener"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"> <rect x="3" y="3" width="18" height="18" rx="4" fill="#2563eb"/> <path d="M8 17V10" stroke="white" stroke-width="2" stroke-linecap="round"/> <circle cx="8" cy="7" r="1.2" fill="white"/> <path d="M12 17v-4.2c0-1.5 1.2-2.8 2.8-2.8s2.8 1.3 2.8 2.8V17" stroke="white" stroke-width="2" stroke-linecap="round"/> </svg> Follow us on LinkedIn</a> </div> </div> </div> </section> <!-- NEW: dedicated schedule section below Contact --> <section id="schedule"> <div class="container"> <h2 class="section-title">Book Your Free Consultation</h2>
 <p style="text-align:center;color:#475569;margin-bottom:24px;"></p>
-<section id="intake-form">
-  <div class="container">
-    <h2 class="section-title">Get Started</h2>
-    <p class="section-desc">Fill out this form to begin your grad school journey with us.</p>
-    
-    <form name="mygradmentor-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
-      <input type="hidden" name="form-name" value="mygradmentor-intake" />
-      <input type="text" name="bot-field" style="display:none" tabindex="-1" autocomplete="off" />
+<section class="mgm-form-wrap container" id="get-started">
+  <h2 class="section-title">Get Started</h2>
+  <p class="section-desc">Fill out this form to begin your grad school journey with us.</p>
 
-      <label>Full name* <input name="name" required></label>
-      <label>Email* <input type="email" name="email" required></label>
-      <label>Phone / WhatsApp <input name="phone"></label>
-      <label>Nationality* <input name="nationality" required></label>
-      <label>Target countries* <input name="target_countries" placeholder="US, UK, EU" required></label>
-      <label>Programs* <input name="programs" placeholder="MPP, IR, Dev, Econ/Policy" required></label>
-      <label>Work experience (brief)* <textarea name="work_ex" required></textarea></label>
-      <label>LinkedIn <input type="url" name="linkedin" placeholder="https://linkedin.com/in/..."></label>
-      <label>Résumé (PDF, ≤10 MB)* <input type="file" name="resume" accept="application/pdf" required></label>
-
-      <label>
-        <input type="checkbox" name="consent" required>
-        I agree to the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.
+  <form name="mygradmentor-intake" method="POST" data-netlify="true"
+        netlify-honeypot="bot-field" enctype="multipart/form-data"
+        class="mgm-form-card">
+    <input type="hidden" name="form-name" value="mygradmentor-intake" />
+    <p class="sr-only">
+      <label>Don’t fill this out if you're human:
+        <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
       </label>
+    </p>
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+    <div class="mgm-field">
+      <label for="name">Full name<span aria-hidden="true">*</span></label>
+      <input id="name" name="name" required>
+    </div>
+
+    <div class="mgm-field">
+      <label for="email">Email<span aria-hidden="true">*</span></label>
+      <input id="email" type="email" name="email" required>
+    </div>
+
+    <div class="mgm-field">
+      <label for="phone">Phone / WhatsApp</label>
+      <input id="phone" name="phone" inputmode="tel" placeholder="+1 555 555 5555">
+    </div>
+
+    <div class="mgm-field">
+      <label for="nationality">Nationality<span aria-hidden="true">*</span></label>
+      <input id="nationality" name="nationality" required>
+    </div>
+
+    <div class="mgm-field">
+      <label for="target_countries">Target countries<span aria-hidden="true">*</span></label>
+      <input id="target_countries" name="target_countries" placeholder="US, UK, EU" required>
+    </div>
+
+    <div class="mgm-field">
+      <label for="programs">Programs<span aria-hidden="true">*</span></label>
+      <input id="programs" name="programs" placeholder="MPP, IR, Dev, Econ/Policy" required>
+    </div>
+
+    <div class="mgm-field">
+      <label for="work_ex">Work experience (brief)<span aria-hidden="true">*</span></label>
+      <textarea id="work_ex" name="work_ex" rows="4" required></textarea>
+    </div>
+
+    <div class="mgm-field">
+      <label for="linkedin">LinkedIn</label>
+      <input id="linkedin" type="url" name="linkedin" placeholder="https://linkedin.com/in/...">
+    </div>
+
+    <div class="mgm-field">
+      <label for="resume">Résumé (PDF, ≤10 MB)<span aria-hidden="true">*</span></label>
+      <input id="resume" type="file" name="resume" accept="application/pdf" required>
+      <small class="mgm-help">Upload a single PDF only.</small>
+    </div>
+
+    <label class="mgm-consent">
+      <input type="checkbox" name="consent" required>
+      <span>I agree to the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+    </label>
+
+    <button class="mgm-btn" type="submit">Submit</button>
+  </form>
+</section>
+
 <!-- Calendly inline widget begin -->
 <div class="calendly-inline-widget"
      data-url="https://calendly.com/mygradmentor-email/30min?hide_event_type_details=1&hide_gdpr_banner=1"
